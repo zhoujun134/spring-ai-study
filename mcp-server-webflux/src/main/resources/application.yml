@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: mcp-server-webflux
+    version: 1.0.0
+  ai:
+    mcp:
+      server:
+        enabled: true
+        type: async
+        name: mcp-server-webflux
+        sse-message-endpoint: /mcp/message
+        sse-endpoint: /sse
+        stdio: true
+server:
+  port: 8082

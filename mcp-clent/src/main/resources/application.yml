@@ -1,0 +1,45 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss  # \u65F6\u95F4\u6233\u7EDF\u4E00\u8F6C\u6362\u4E3A\u6307\u5B9A\u683C\u5F0F
+    time-zone: GMT+8  # \u65F6\u533A\u4FEE\u6539\u4E3A\u4E1C8\u533A
+  ai:
+    ollama:
+      init:
+        timeout: 60s
+        max-retries: 1
+        embedding:
+          additional-models:
+            - bge-m3
+        pull-model-strategy: when_missing
+      base-url: https://ollama-zhoujun134.cpolar.cn
+      #      base-url: http://localhost:11434
+      embedding:
+        model: bge-m3
+      chat:
+        #        model: command-r7b-arabic
+        model: qwen3:4b
+    #        model: deepseek-r1:7b
+    #        model: llama3.1:latest
+    mcp:
+      client:
+        enabled: true
+        initialized: false
+        name: my-mcp-client
+        version: 1.0.0
+        request-timeout: 30s
+        type: ASYNC  # or ASYNC for reactive applications
+        sse:
+          connections:
+            soldier-server:
+              url: http://localhost:8082
+              sse-endpoint: /sse
+        root-change-notification: true
+server:
+  port: 8081
+# \u667A\u666E api key
+zhipu:
+  system:
+    param:
+      api-key: ZHIPU_API_KEY
+      base-url: ZHIPU_BASE_URL
+      chat-model-name: ZHIPU_CHAT_MODEL_NAME
