@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ToolConfig {
     @Bean
-    public ToolCallbackProvider weatherTools(ComputeService computeService,
+    public ToolCallbackProvider tools(ComputeService computeService,
                                              FileSystemService fileSystemService) {
         return MethodToolCallbackProvider.builder()
                 .toolObjects(computeService, fileSystemService)

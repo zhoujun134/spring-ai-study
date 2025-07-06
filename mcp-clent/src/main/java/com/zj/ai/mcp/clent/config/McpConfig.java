@@ -135,6 +135,7 @@ public class McpConfig {
             String serverUrl = sseParameter.url();
             this.createClientByServerUrl(serverUrl);
         });
+        log.info("initMcpClient <----------------> end tools:{}", GsonUtils.toJSONString(this.getToolCallback()));
     }
 
     /**

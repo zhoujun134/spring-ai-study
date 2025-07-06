@@ -1,5 +1,6 @@
 package com.zj.ai.mcp.sdk.gson;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -18,6 +19,9 @@ public class GsonUtils {
             .disableHtmlEscaping()
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
             .create();
+
+    private final static ObjectMapper objectMapper = new ObjectMapper();
+
     public static DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static String toJSONString(Object data) {
@@ -25,7 +29,8 @@ public class GsonUtils {
             return "";
         }
         try {
-            return gson.toJson(data);
+            return objectMapper.writeValueAsString(data);
+//            return gson.toJson(data);
         } catch (Exception e) {
             log.error("JsonUtils######toString： error data={}", data, e);
             return "";

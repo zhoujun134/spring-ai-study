@@ -8,8 +8,14 @@ spring:
         enabled: true
         type: async
         name: mcp-server-webflux
-        sse-message-endpoint: /mcp/message
+        version: 1.0.0
+        sse-message-endpoint: /mcp/messages
         sse-endpoint: /sse
-        stdio: true
+        capabilities:
+          completion: true
+          tool: true
+          prompt: true
+          resource: true
+
 server:
   port: 8082

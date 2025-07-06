@@ -11,7 +11,7 @@ spring:
           additional-models:
             - bge-m3
         pull-model-strategy: when_missing
-      base-url: https://ollama-zhoujun134.cpolar.cn
+      base-url: http://localhost:11434
       #      base-url: http://localhost:11434
       embedding:
         model: bge-m3
@@ -23,17 +23,17 @@ spring:
     mcp:
       client:
         enabled: true
-        initialized: false
+        toolcallback:
+          enabled: true
         name: my-mcp-client
         version: 1.0.0
         request-timeout: 30s
         type: ASYNC  # or ASYNC for reactive applications
         sse:
           connections:
-            soldier-server:
-              url: http://localhost:8082
-              sse-endpoint: /sse
-        root-change-notification: true
+            server1:
+              url: http://127.0.0.1:8082
+#        root-change-notification: true
 server:
   port: 8081
 # \u667A\u666E api key
